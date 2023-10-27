@@ -1,12 +1,9 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 public class DotBehaviour : MonoBehaviour
 
 {
     public Camera cam;
-
-    public UnityEvent onDrag;
     
     public Vector3 firstTouchPosition;
     public Vector3 finalTouchPosition;
@@ -59,7 +56,7 @@ public class DotBehaviour : MonoBehaviour
         else
         {
             //directly set position
-            tempPosition = new Vector3(targetX, transform.position.y);
+            tempPosition = new Vector3(transform.position.x, targetY);
             transform.position = tempPosition;
             board.allDots[column, row] = this.gameObject;
         }
@@ -67,25 +64,18 @@ public class DotBehaviour : MonoBehaviour
 
     public void OnMouseDown()
     {
-        onDrag.Invoke();
         firstTouchPosition = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, cam.nearClipPlane));
-        //Debug.Log("Clicked");
-        Debug.Log(firstTouchPosition);
     }
     
     public void OnMouseUp()
     {
         finalTouchPosition = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, cam.nearClipPlane));
-        Debug.Log(finalTouchPosition);
         CalcuateAngle();
     }
     
      void CalcuateAngle()
     {
         swipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
-        Debug.Log(swipeAngle);
-        //Debug.Log(firstTouchPosition);
-        //Debug.Log(finalTouchPosition);
         MoveObjects();
     }
 
@@ -97,7 +87,6 @@ public class DotBehaviour : MonoBehaviour
             comparedDot = board.allDots[column + 1, row];
             comparedDot.GetComponent<DotBehaviour>().column -= 1;
             column += 1;
-            Debug.Log("Right swipe");
         }
         else if (swipeAngle > 45 && swipeAngle <= 135 && row < board.height)
         {
@@ -105,7 +94,6 @@ public class DotBehaviour : MonoBehaviour
             comparedDot = board.allDots[column, row + 1];
             comparedDot.GetComponent<DotBehaviour>().row -= 1;
             row += 1;
-            Debug.Log("Up swipe");
         }
         else if ((swipeAngle > 135  || swipeAngle <= -135) && column > 0)
         {
@@ -113,7 +101,6 @@ public class DotBehaviour : MonoBehaviour
             comparedDot = board.allDots[column - 1, row];
             comparedDot.GetComponent<DotBehaviour>().column += 1;
             column -= 1;
-            Debug.Log("Left swipe");
         }   
         else if ((swipeAngle < -45 && swipeAngle >= -135) && row > 0)
         {
@@ -121,7 +108,6 @@ public class DotBehaviour : MonoBehaviour
             comparedDot = board.allDots[column, row - 1];
             comparedDot.GetComponent<DotBehaviour>().row += 1;
             row -= 1;
-            Debug.Log("Down swipe");
         }
     }
 }
