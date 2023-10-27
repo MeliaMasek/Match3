@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -4610625326394680762}
   m_Layer: 0
   m_Name: Pink
-  m_TagString: Untagged
+  m_TagString: Pink
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,7 +98,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e0d5c36a52c4d489cd223602d1afc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  firstTouchPosition: {x: 0, y: 0, z: 0}
+  finalTouchPosition: {x: 0, y: 0, z: 0}
+  tempPosition: {x: 0, y: 0, z: 0}
   swipeAngle: 0
+  column: 0
+  row: 0
+  targetX: 0
+  targetY: 0
+  isMatched: 0
 --- !u!58 &-4610625326394680762
 CircleCollider2D:
   m_ObjectHideFlags: 0

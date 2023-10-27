@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class DotBehaviour : MonoBehaviour
@@ -8,16 +9,22 @@ public class DotBehaviour : MonoBehaviour
     public Vector3 firstTouchPosition;
     public Vector3 finalTouchPosition;
     public Vector3 tempPosition;
+    
     public float swipeAngle;
     
     public int column;
     public int row;
+
+    public int previousColumn;
+    public int previousRow;
+    
     public int targetX;
     public int targetY;
     
     private GameObject comparedDot;
     private BoardBehaviour board;
-
+    
+    public bool isMatched = false;
     private void Start()
     {
         cam = Camera.main;
@@ -27,10 +34,19 @@ public class DotBehaviour : MonoBehaviour
         targetY = (int)transform.position.y;
         row = targetY;
         column = targetX;
+        previousRow = row;
+        previousColumn = column;
     }
 
     private void Update()
     {
+        CheckMatch();
+        if (isMatched)
+        {
+            SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+            sprite.color = new Color(0f, 0f, 0f, .2f);
+        }
+        
         targetX = column;
         targetY = row;
         if (Mathf.Abs(targetX - transform.position.x) > .1)
@@ -62,6 +78,22 @@ public class DotBehaviour : MonoBehaviour
         }
     }
 
+    public IEnumerator CheckMove()
+    {
+        yield return new WaitForSeconds(.3f);
+        if (comparedDot != null)
+        {
+            if (!isMatched && !comparedDot.GetComponent<DotBehaviour>().isMatched)
+            {
+                comparedDot.GetComponent<DotBehaviour>().row = row;
+                comparedDot.GetComponent<DotBehaviour>().column = column;
+                row = previousRow;
+                column = previousColumn;
+            }
+            comparedDot = null;
+        }
+    }
+
     public void OnMouseDown()
     {
         firstTouchPosition = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, cam.nearClipPlane));
@@ -81,14 +113,14 @@ public class DotBehaviour : MonoBehaviour
 
     void MoveObjects()
     {
-        if (swipeAngle > -45 && swipeAngle <= 45 && column < board.width)
+        if (swipeAngle > -45 && swipeAngle <= 45 && column < board.width - 1)
         {
             //Right swipe
             comparedDot = board.allDots[column + 1, row];
             comparedDot.GetComponent<DotBehaviour>().column -= 1;
             column += 1;
         }
-        else if (swipeAngle > 45 && swipeAngle <= 135 && row < board.height)
+        else if (swipeAngle > 45 && swipeAngle <= 135 && row < board.height - 1)
         {
             //Up swipe
             comparedDot = board.allDots[column, row + 1];
@@ -108,6 +140,40 @@ public class DotBehaviour : MonoBehaviour
             comparedDot = board.allDots[column, row - 1];
             comparedDot.GetComponent<DotBehaviour>().row += 1;
             row -= 1;
+        }
+        StartCoroutine(CheckMove());
+    }
+
+    public void CheckMatch()
+    {
+        if (column > 0 && column < board.width - 1)
+        {
+            GameObject leftDot1 = board.allDots[column - 1, row];
+            GameObject rightDot1 = board.allDots[column + 1, row];
+            if (leftDot1 != null && rightDot1 != null)
+            {
+                if (leftDot1.tag == this.gameObject.tag && rightDot1.tag == this.gameObject.tag)
+                {
+                    leftDot1.GetComponent<DotBehaviour>().isMatched = true;
+                    rightDot1.GetComponent<DotBehaviour>().isMatched = true;
+                    isMatched = true;
+                }
+            }
+        }
+        
+        if (row > 0 && row < board.height - 1)
+        {
+            GameObject upDot1 = board.allDots[column, row + 1];
+            GameObject downDot1 = board.allDots[column, row - 1];
+            if (upDot1 != null && downDot1 != null)
+            {
+                if (upDot1.tag == this.gameObject.tag && downDot1.tag == this.gameObject.tag)
+                {
+                    upDot1.GetComponent<DotBehaviour>().isMatched = true;
+                    downDot1.GetComponent<DotBehaviour>().isMatched = true;
+                    isMatched = true;
+                }
+            }
         }
     }
 }
