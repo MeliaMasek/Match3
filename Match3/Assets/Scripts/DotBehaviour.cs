@@ -11,6 +11,7 @@ public class DotBehaviour : MonoBehaviour
     public Vector3 tempPosition;
     
     public float swipeAngle;
+    public float swipeResist = 1f;
     
     public int column;
     public int row;
@@ -90,6 +91,10 @@ public class DotBehaviour : MonoBehaviour
                 row = previousRow;
                 column = previousColumn;
             }
+            else
+            {
+                board.DestroyMatches();
+            }
             comparedDot = null;
         }
     }
@@ -107,8 +112,11 @@ public class DotBehaviour : MonoBehaviour
     
      void CalcuateAngle()
     {
-        swipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
-        MoveObjects();
+        if (Mathf.Abs(finalTouchPosition.y - firstTouchPosition.y) > swipeResist || Mathf.Abs(finalTouchPosition.x - firstTouchPosition.x) > swipeResist);
+        {
+            swipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
+            MoveObjects();   
+        }
     }
 
     void MoveObjects()
@@ -150,6 +158,7 @@ public class DotBehaviour : MonoBehaviour
         {
             GameObject leftDot1 = board.allDots[column - 1, row];
             GameObject rightDot1 = board.allDots[column + 1, row];
+
             if (leftDot1 != null && rightDot1 != null)
             {
                 if (leftDot1.tag == this.gameObject.tag && rightDot1.tag == this.gameObject.tag)
