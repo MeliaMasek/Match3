@@ -12,6 +12,7 @@ public class DotBehaviour : MonoBehaviour
     
     public float swipeAngle;
     public float swipeResist = 1f;
+    public float SwitchSpeed = .2f;
     
     public int column;
     public int row;
@@ -54,28 +55,34 @@ public class DotBehaviour : MonoBehaviour
         {
             //move toward target
             tempPosition = new Vector3(targetX, transform.position.y);
-            transform.position = Vector3.Lerp(transform.position, tempPosition, .2f);
+            transform.position = Vector3.Lerp(transform.position, tempPosition, SwitchSpeed);
+            if (board.allDots[column, row] != this.gameObject)
+            {
+                board.allDots[column, row] = this.gameObject;
+            }
         }
         else
         {
             //directly set position
             tempPosition = new Vector3(targetX, transform.position.y);
             transform.position = tempPosition;
-            board.allDots[column, row] = this.gameObject;
         }
         
         if (Mathf.Abs(targetY - transform.position.y) > .1)
         {
             //move toward target
             tempPosition = new Vector3(transform.position.x, targetY);
-            transform.position = Vector3.Lerp(transform.position, tempPosition, .2f);
+            transform.position = Vector3.Lerp(transform.position, tempPosition, SwitchSpeed);
+            if (board.allDots[column, row] != this.gameObject)
+            {
+                board.allDots[column, row] = this.gameObject;
+            }
         }
         else
         {
             //directly set position
             tempPosition = new Vector3(transform.position.x, targetY);
             transform.position = tempPosition;
-            board.allDots[column, row] = this.gameObject;
         }
     }
 

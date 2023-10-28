@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -6,9 +7,9 @@ public class BoardBehaviour : MonoBehaviour
 {
     public int width;
     public int height;
-    
+
     private BackgroundTile[,] allTiles;
-    
+
     public GameObject tilePrefab;
     public GameObject[] dots;
     public GameObject[,] allDots;
@@ -27,13 +28,13 @@ public class BoardBehaviour : MonoBehaviour
             for (int j = 0; j < height; j++)
             {
                 Vector2 tempPosition = new Vector2(i, j);
-                GameObject backgroundTile = Instantiate(tilePrefab,tempPosition, Quaternion.identity) as GameObject;
+                GameObject backgroundTile = Instantiate(tilePrefab, tempPosition, Quaternion.identity) as GameObject;
                 backgroundTile.transform.parent = this.transform;
                 backgroundTile.name = "(" + i + "," + j + ")";
-                
+
                 int usableDots = Random.Range(0, dots.Length);
                 int maxIterations = 0;
-                
+
                 while (MatchesAt(i, j, dots[usableDots]) && maxIterations < 100)
                 {
                     usableDots = Random.Range(0, dots.Length);
@@ -41,24 +42,25 @@ public class BoardBehaviour : MonoBehaviour
                 }
 
                 maxIterations = 0;
-                
+
                 GameObject dot = Instantiate(dots[usableDots], tempPosition, Quaternion.identity);
                 dot.transform.parent = this.transform;
                 dot.name = "(" + i + "," + j + ")";
                 allDots[i, j] = dot;
             }
-        }   
+        }
     }
 
     private bool MatchesAt(int column, int row, GameObject obj)
     {
         if (column > 1 && row > 1)
         {
-            if (allDots[column - 1 , row].tag == obj.tag && allDots[column - 2, row].tag == obj.tag)
+            if (allDots[column - 1, row].tag == obj.tag && allDots[column - 2, row].tag == obj.tag)
             {
                 return true;
             }
-            if (allDots[column, row -1 ].tag == obj.tag && allDots[column, row - 2].tag == obj.tag)
+
+            if (allDots[column, row - 1].tag == obj.tag && allDots[column, row - 2].tag == obj.tag)
             {
                 return true;
             }
@@ -67,23 +69,24 @@ public class BoardBehaviour : MonoBehaviour
         {
             if (row > 1)
             {
-                if (allDots[column, row -1]. tag == obj.tag && allDots[column, row - 2].tag == obj.tag)
+                if (allDots[column, row - 1].tag == obj.tag && allDots[column, row - 2].tag == obj.tag)
                 {
                     return true;
                 }
             }
-            
+
             if (column > 1)
             {
-                if (allDots[column - 1, row]. tag == obj.tag && allDots[column - 2, row].tag == obj.tag)
+                if (allDots[column - 1, row].tag == obj.tag && allDots[column - 2, row].tag == obj.tag)
                 {
                     return true;
                 }
             }
         }
+
         return false;
     }
-    
+
     private void DestroyMatchesAt(int column, int row)
     {
         if (allDots[column, row].GetComponent<DotBehaviour>().isMatched)
@@ -126,8 +129,59 @@ public class BoardBehaviour : MonoBehaviour
                     allDots[i, j] = null;
                 }
             }
+
             nullCount = 0;
         }
+
         yield return new WaitForSeconds(0.5f);
+        StartCoroutine(FillBoard());
     }
-}   
+
+    private void RefillBoard()
+    {
+        for (int i = 0; i < width; i++)
+        {
+            for (int j = 0; j < height; j++)
+            {
+                if (allDots[i, j] == null)
+                {
+                    Vector3 tempPosition = new Vector3(i, j + 1);
+                    int usableDots = Random.Range(0, dots.Length);
+                    GameObject dot = Instantiate(dots[usableDots], tempPosition, Quaternion.identity);
+                    allDots[i, j] = dot;
+                }
+            }
+        }
+    }
+
+    private bool MatchesOnBoard()
+    {
+        for (int i = 0; i < width; i++)
+        {
+            for (int j = 0; j < height; j++)
+            {
+                if (allDots[i, j] != null)
+                {
+                    if (allDots[i, j].GetComponent<DotBehaviour>().isMatched)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private IEnumerator FillBoard()
+    {
+        RefillBoard();
+        yield return new WaitForSeconds(.5f);
+
+        while (MatchesOnBoard())
+        {
+            yield return new WaitForSeconds(.5f);
+            DestroyMatches();
+        }
+    }
+}
