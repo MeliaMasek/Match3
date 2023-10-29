@@ -32,12 +32,12 @@ public class DotBehaviour : MonoBehaviour
         cam = Camera.main;
         
         board = FindObjectOfType<BoardBehaviour>();
-        targetX = (int)transform.position.x;
-        targetY = (int)transform.position.y;
-        row = targetY;
-        column = targetX;
-        previousRow = row;
-        previousColumn = column;
+        //targetX = (int)transform.position.x;
+        //targetY = (int)transform.position.y;
+        //row = targetY;
+        //column = targetX;
+        //previousRow = row;
+        //previousColumn = column;
     }
 
     private void Update()
@@ -132,6 +132,8 @@ public class DotBehaviour : MonoBehaviour
         {
             //Right swipe
             comparedDot = board.allDots[column + 1, row];
+            previousRow = row;
+            previousColumn = column;
             comparedDot.GetComponent<DotBehaviour>().column -= 1;
             column += 1;
         }
@@ -139,6 +141,8 @@ public class DotBehaviour : MonoBehaviour
         {
             //Up swipe
             comparedDot = board.allDots[column, row + 1];
+            previousRow = row;
+            previousColumn = column;
             comparedDot.GetComponent<DotBehaviour>().row -= 1;
             row += 1;
         }
@@ -146,6 +150,8 @@ public class DotBehaviour : MonoBehaviour
         {
             //Left swipe
             comparedDot = board.allDots[column - 1, row];
+            previousRow = row;
+            previousColumn = column;
             comparedDot.GetComponent<DotBehaviour>().column += 1;
             column -= 1;
         }   
@@ -153,6 +159,8 @@ public class DotBehaviour : MonoBehaviour
         {
             //Down swipe
             comparedDot = board.allDots[column, row - 1];
+            previousRow = row;
+            previousColumn = column;
             comparedDot.GetComponent<DotBehaviour>().row += 1;
             row -= 1;
         }
