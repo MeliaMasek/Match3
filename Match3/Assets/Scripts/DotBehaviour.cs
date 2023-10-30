@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
+//Code borrowed and modified from Mister Taft Creates https://www.youtube.com/playlist?list=PL4vbr3u7UKWrxEz75MqmTDd899cYAvQ_B
+
 public class DotBehaviour : MonoBehaviour
 
 {
