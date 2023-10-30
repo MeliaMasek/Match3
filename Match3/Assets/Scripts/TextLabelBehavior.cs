@@ -5,7 +5,9 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Text))]
 public class TextLabelBehavior : MonoBehaviour
 {
-    private Text label;
+    public Text label;
+    public IntData score;
+    
     //public FloatData dataObj;
     public UnityEvent startEvent;
     private void Start()
@@ -13,6 +15,16 @@ public class TextLabelBehavior : MonoBehaviour
         label = GetComponent<Text>();
         startEvent.Invoke();
         //label.text = dataObj.value.ToString();
+    }
+
+    private void Update()
+    {
+        // Check if the Text component and ScoreData have been assigned.
+        if (label != null && score != null)
+        {
+            // Update the UI Text with the current score from the ScoreData.
+            label.text = "Score: " + score.value.ToString();
+        }
     }
 
     public void UpdateLabel(FloatData obj)

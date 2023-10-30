@@ -708,7 +708,7 @@ GameObject:
   - component: {fileID: 535507365}
   - component: {fileID: 535507364}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UICanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9790,6 +9790,7 @@ MonoBehaviour:
   width: 6
   height: 5
   offset: 3
+  scoreData: {fileID: 11400000, guid: 7bfe10bdeda75004e8ac7693b2516b70, type: 2}
   tilePrefab: {fileID: 2771758973826584141, guid: 36ef5062509ba75489070078eaccc2de, type: 3}
   dots:
   - {fileID: 8391520616207244532, guid: 9f5f8217ab2a6ff439ad69bd3dab5479, type: 3}
@@ -29200,7 +29201,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1039150072
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29276,7 +29277,7 @@ GameObject:
   - component: {fileID: 1102753231}
   - component: {fileID: 1102753230}
   m_Layer: 5
-  m_Name: UICanvas
+  m_Name: SOCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29598,7 +29599,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1407464415
 RectTransform:
   m_ObjectHideFlags: 0
@@ -30473,6 +30474,8 @@ GameObject:
   - component: {fileID: 1807441926}
   - component: {fileID: 1807441928}
   - component: {fileID: 1807441927}
+  - component: {fileID: 1807441930}
+  - component: {fileID: 1807441929}
   m_Layer: 5
   m_Name: ScoreNum
   m_TagString: Untagged
@@ -30497,7 +30500,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -132.19997, y: 101.6}
+  m_AnchoredPosition: {x: -270, y: 101}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1807441927
@@ -30544,6 +30547,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1807441925}
   m_CullTransparentMesh: 1
+--- !u!114 &1807441929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807441925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30b917766b1d8e46afe4f00bc763459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameActionobj: {fileID: 11400000, guid: 958fd7e2e2ac0d848bdfc8e13ee3d411, type: 2}
+  onRaiseEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1807441930}
+        m_TargetAssemblyTypeName: TextLabelBehavior, Assembly-CSharp
+        m_MethodName: UpdateLabel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 7bfe10bdeda75004e8ac7693b2516b70, type: 2}
+          m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1807441930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807441925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad06cae4f1e803429222b0eb9c01569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  label: {fileID: 1807441927}
+  score: {fileID: 11400000, guid: 7bfe10bdeda75004e8ac7693b2516b70, type: 2}
+  startEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1807441930}
+        m_TargetAssemblyTypeName: TextLabelBehavior, Assembly-CSharp
+        m_MethodName: UpdateLabel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 7bfe10bdeda75004e8ac7693b2516b70, type: 2}
+          m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1827943415
 GameObject:
   m_ObjectHideFlags: 0
@@ -31245,6 +31305,8 @@ GameObject:
   - component: {fileID: 2113158375}
   - component: {fileID: 2113158377}
   - component: {fileID: 2113158376}
+  - component: {fileID: 2113158379}
+  - component: {fileID: 2113158378}
   m_Layer: 5
   m_Name: HighscoreNum
   m_TagString: Untagged
@@ -31269,7 +31331,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 231.8, y: 101.6}
+  m_AnchoredPosition: {x: 107, y: 101}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2113158376
@@ -31316,3 +31378,84 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2113158374}
   m_CullTransparentMesh: 1
+--- !u!114 &2113158378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113158374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30b917766b1d8e46afe4f00bc763459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameActionobj: {fileID: 11400000, guid: 958fd7e2e2ac0d848bdfc8e13ee3d411, type: 2}
+  onRaiseEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2113158379}
+        m_TargetAssemblyTypeName: TextLabelBehavior, Assembly-CSharp
+        m_MethodName: UpdateLabel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: bba0dc8a200f4944b90ce37e2974c653, type: 2}
+          m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2113158379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113158374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad06cae4f1e803429222b0eb9c01569, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  label: {fileID: 2113158376}
+  score: {fileID: 11400000, guid: bba0dc8a200f4944b90ce37e2974c653, type: 2}
+  startEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: bba0dc8a200f4944b90ce37e2974c653, type: 2}
+        m_TargetAssemblyTypeName: IntData, Assembly-CSharp
+        m_MethodName: CompareValue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 7bfe10bdeda75004e8ac7693b2516b70, type: 2}
+          m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2113158379}
+        m_TargetAssemblyTypeName: TextLabelBehavior, Assembly-CSharp
+        m_MethodName: UpdateLabel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 7bfe10bdeda75004e8ac7693b2516b70, type: 2}
+          m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2113158379}
+        m_TargetAssemblyTypeName: TextLabelBehavior, Assembly-CSharp
+        m_MethodName: UpdateLabel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: bba0dc8a200f4944b90ce37e2974c653, type: 2}
+          m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

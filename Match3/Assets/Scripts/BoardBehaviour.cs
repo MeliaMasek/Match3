@@ -8,12 +8,14 @@ public class BoardBehaviour : MonoBehaviour
     public int height;
     public int offset;
 
+    public IntData scoreData;
+
     private BackgroundTile[,] allTiles;
 
     public GameObject tilePrefab;
     public GameObject[] dots;
     public GameObject[,] allDots;
-
+    
     private void Start()
     {
         allTiles = new BackgroundTile[width, height];
@@ -100,6 +102,10 @@ public class BoardBehaviour : MonoBehaviour
 
     public void DestroyMatches()
     {
+        int scoreToAdd = 5;
+        
+        bool scoreAdded = false;
+        
         for (int i = 0; i < width; i++)
         {
             for (int j = 0; j < height; j++)
@@ -107,6 +113,12 @@ public class BoardBehaviour : MonoBehaviour
                 if (allDots[i, j] != null)
                 {
                     DestroyMatchesAt(i, j);
+                    
+                    if (!scoreAdded) // Add score only once per match.
+                    {
+                        scoreData.value += scoreToAdd; // Increment the score.
+                        scoreAdded = true;
+                    }
                 }
             }
         }
