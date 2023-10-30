@@ -29,11 +29,14 @@ public class DotBehaviour : MonoBehaviour
     private BoardBehaviour board;
     
     public bool isMatched = false;
+
+    private MatchingBehaviour findMatches;
     private void Start()
     {
         cam = Camera.main;
         
         board = FindObjectOfType<BoardBehaviour>();
+        findMatches = FindObjectOfType<MatchingBehaviour>();
         //targetX = (int)transform.position.x;
         //targetY = (int)transform.position.y;
         //row = targetY;
@@ -44,7 +47,7 @@ public class DotBehaviour : MonoBehaviour
 
     private void Update()
     {
-        CheckMatch();
+        //CheckMatch();
         if (isMatched)
         {
             SpriteRenderer sprite = GetComponent<SpriteRenderer>();
@@ -62,6 +65,7 @@ public class DotBehaviour : MonoBehaviour
             {
                 board.allDots[column, row] = this.gameObject;
             }
+            findMatches.FindAllMatches();
         }
         else
         {
@@ -79,6 +83,7 @@ public class DotBehaviour : MonoBehaviour
             {
                 board.allDots[column, row] = this.gameObject;
             }
+            findMatches.FindAllMatches();
         }
         else
         {

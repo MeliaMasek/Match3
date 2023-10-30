@@ -24,8 +24,11 @@ public class BoardBehaviour : MonoBehaviour
     public GameObject[,] allDots;
     
     public GamesState currentState = GamesState.move;
+    
+    private MatchingBehaviour findMatches;
     private void Start()
     {
+        findMatches = FindObjectOfType<MatchingBehaviour>();
         allTiles = new BackgroundTile[width, height];
         allDots = new GameObject[width, height];
         SetUp();
@@ -103,6 +106,7 @@ public class BoardBehaviour : MonoBehaviour
     {
         if (allDots[column, row].GetComponent<DotBehaviour>().isMatched)
         {
+            findMatches.currentMatches.Remove(allDots[column, row]);
             Destroy(allDots[column, row]);
             allDots[column, row] = null;
         }
