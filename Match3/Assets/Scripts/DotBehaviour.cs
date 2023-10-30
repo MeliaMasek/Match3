@@ -99,10 +99,13 @@ public class DotBehaviour : MonoBehaviour
                 comparedDot.GetComponent<DotBehaviour>().column = column;
                 row = previousRow;
                 column = previousColumn;
+                yield return new WaitForSeconds(.25f);
+                board.currentState = GamesState.move;
             }
             else
             {
                 board.DestroyMatches();
+                board.currentState = GamesState.move;
             }
             comparedDot = null;
         }
@@ -110,13 +113,23 @@ public class DotBehaviour : MonoBehaviour
 
     public void OnMouseDown()
     {
-        firstTouchPosition = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, cam.nearClipPlane));
+        if (board.currentState == GamesState.move)
+        { 
+            firstTouchPosition = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, cam.nearClipPlane));
+        }
     }
     
     public void OnMouseUp()
     {
-        finalTouchPosition = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, cam.nearClipPlane));
-        CalcuateAngle();
+        if (board.currentState == GamesState.move)
+        {
+            finalTouchPosition = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, cam.nearClipPlane));
+            CalcuateAngle();
+        }
+        else
+        {
+            board.currentState = GamesState.move;
+        }
     }
     
      void CalcuateAngle()
@@ -124,7 +137,9 @@ public class DotBehaviour : MonoBehaviour
         if (Mathf.Abs(finalTouchPosition.y - firstTouchPosition.y) > swipeResist || Mathf.Abs(finalTouchPosition.x - firstTouchPosition.x) > swipeResist);
         {
             swipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
-            MoveObjects();   
+            MoveObjects();
+            
+            board.currentState = GamesState.wait;
         }
     }
 

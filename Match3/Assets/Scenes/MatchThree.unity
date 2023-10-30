@@ -9759,7 +9759,7 @@ MonoBehaviour:
   - {fileID: 913284661132514207, guid: 2f269d2c9642feb4fa2ae3fab0539511, type: 3}
   - {fileID: 6241613764269450937, guid: 1320421a1214c1b48912c35ee9a22a29, type: 3}
   - {fileID: 7101574221367451070, guid: 8babdfbc29878a94498181d8e3748ce6, type: 3}
-  - {fileID: 7101574221367451070, guid: 8babdfbc29878a94498181d8e3748ce6, type: 3}
+  currentState: 1
 --- !u!4 &625287014
 Transform:
   m_ObjectHideFlags: 0
@@ -24028,7 +24028,7 @@ MonoBehaviour:
   _assetName: Bottle3
   _assetOpName: Melia::dev::Object/Bottle::1.0
   _assetHelp: 
-  _assetID: 98
+  _assetID: -1
   _assetPath: C:/Users/Melia/Documents/houdini19.5/otls/object_Melia.dev.Bottle.1.0.hdanc
   _loadAssetFromMemory: 0
   _alwaysOverwriteOnLoad: 0
@@ -30667,7 +30667,7 @@ MonoBehaviour:
   _assetName: Bottle4
   _assetOpName: Melia::dev::Object/Bottle::1.0
   _assetHelp: 
-  _assetID: 66
+  _assetID: -1
   _assetPath: C:/Users/Melia/Documents/houdini19.5/otls/object_Melia.dev.Bottle.1.0.hdanc
   _loadAssetFromMemory: 0
   _alwaysOverwriteOnLoad: 0

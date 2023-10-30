@@ -3,6 +3,12 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 //Code borrowed and modified from Mister Taft Creates https://www.youtube.com/playlist?list=PL4vbr3u7UKWrxEz75MqmTDd899cYAvQ_B
+
+public enum GamesState
+{
+    wait,
+    move
+}
 public class BoardBehaviour : MonoBehaviour
 {
     public int width;
@@ -17,6 +23,7 @@ public class BoardBehaviour : MonoBehaviour
     public GameObject[] dots;
     public GameObject[,] allDots;
     
+    public GamesState currentState = GamesState.move;
     private void Start()
     {
         allTiles = new BackgroundTile[width, height];
@@ -201,5 +208,7 @@ public class BoardBehaviour : MonoBehaviour
             yield return new WaitForSeconds(.5f);
             DestroyMatches();
         }
+        yield return new WaitForSeconds(.25f);
+        currentState = GamesState.move;
     }
 }
