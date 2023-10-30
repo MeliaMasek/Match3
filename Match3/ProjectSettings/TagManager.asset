@@ -11,6 +11,8 @@ TagManager:
   - Green
   - Yellow
   - Purple
+  - Tail
+  - Bone
   layers:
   - Default
   - TransparentFX
