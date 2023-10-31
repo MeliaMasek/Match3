@@ -3,7 +3,67 @@ guid: e313390da50587047bdc730e1104ceb8
 ModelImporter:
   serializedVersion: 22103
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SableFinal_02_Body1
+    second: {fileID: 2100000, guid: c06104606e85ec74ca140c840b7f9e26, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SableFinal_02_Boot_Base
+    second: {fileID: 2100000, guid: 7a42b3c4fe8162a449621a44fe7d5948, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SableFinal_02_Boot_Elastic
+    second: {fileID: 2100000, guid: 98075df7d35825b4a9c6b007bdedbf04, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SableFinal_02_Boot_Sole
+    second: {fileID: 2100000, guid: ff1b0fa37d8f3f443a8a7e9f072a1f92, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SableFinal_02_Dress1
+    second: {fileID: 2100000, guid: f52428835a6fba749aff93146163a7ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SableFinal_02_Eye
+    second: {fileID: 2100000, guid: 18b9e6ca64d372a4e92d8b0594eebe47, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SableFinal_02_Gems
+    second: {fileID: 2100000, guid: 444f85735ffaa164ca243202eaa0029e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SableFinal_02_Hair1
+    second: {fileID: 2100000, guid: c2413c89e727f2e46a0889bafdc97fd9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SableFinal_02_Hat
+    second: {fileID: 2100000, guid: d1bd737ad6684ef459a48470f8cd715b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SableFinal_02_Metalparts
+    second: {fileID: 2100000, guid: 75b752f9267b7874980d50d1a8aef4c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SableFinal_02_Sleeves1
+    second: {fileID: 2100000, guid: 2b4ba7ef68360e54886dcaab80f779d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SableFinal_02_Tights1
+    second: {fileID: 2100000, guid: 2dd2e8b14a00cc14ba81ec3815f4e3d8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
