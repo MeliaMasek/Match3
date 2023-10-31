@@ -4,15 +4,17 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Blue
-  - Cyan
   - Red
-  - Pink
-  - Green
-  - Yellow
   - Purple
   - Tail
   - Bone
+  - Eye
+  - Berry
+  - Blue
+  - Cyan
+  - Green
+  - Pink
+  - Yellow
   layers:
   - Default
   - TransparentFX
