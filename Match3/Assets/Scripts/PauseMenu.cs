@@ -1,11 +1,12 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 //code borrowed and modified by Hooson on youtube https://www.youtube.com/watch?v=tfzwyNS1LUY
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject shopMenu;
+
 
     private int sceneToContinue;
     private int currentSceneIndex;
@@ -23,7 +24,13 @@ public class PauseMenu : MonoBehaviour
 
     public void Home()
     {
-        Time.timeScale = 1f;
         mainMenu.SetActive(true);
+        Time.timeScale = 1f;
+    }
+    
+    public void Shop()
+    {
+        shopMenu.SetActive(true);
+        Time.timeScale = 1f;
     }
 }
