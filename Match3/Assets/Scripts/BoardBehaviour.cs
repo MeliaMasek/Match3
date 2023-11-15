@@ -112,6 +112,7 @@ public class BoardBehaviour : MonoBehaviour
             Destroy(allDots[column, row]);
             allDots[column, row] = null;
         }
+        soundManager.PlayMatchingSound();
     }
 
     public void DestroyMatches()

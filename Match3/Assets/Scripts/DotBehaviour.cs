@@ -32,6 +32,9 @@ public class DotBehaviour : MonoBehaviour
 
     private MatchingBehaviour findMatches;
     
+    private SoundManager soundManager;
+
+    
     private void Start()
     {
         cam = Camera.main;

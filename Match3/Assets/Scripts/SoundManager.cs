@@ -3,15 +3,15 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public AudioSource matchingSound;
-    public AudioSource backgroundMusic;
+    public AudioSource noMatchingSound;
     
     public void PlayMatchingSound()
     {
         matchingSound.Play();    
     }
 
-    public void Update()
+    public void PlayNoMatchSound()
     {
-        backgroundMusic.Play();
+        noMatchingSound.Play();
     }
 }
