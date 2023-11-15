@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //code borrowed and modified by Hooson on youtube https://www.youtube.com/watch?v=tfzwyNS1LUY
 public class PauseMenu : MonoBehaviour
@@ -22,15 +23,27 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void Home()
+    public void HomeOn()
     {
         mainMenu.SetActive(true);
         Time.timeScale = 1f;
     }
+   
+    public void HomeOff()
+    {
+        mainMenu.SetActive(false);
+        Time.timeScale = 1f;
+    }
     
-    public void Shop()
+    public void ShopOn()
     {
         shopMenu.SetActive(true);
         Time.timeScale = 1f;
+    }
+    
+    public void ShopOff()
+    {
+        shopMenu.SetActive(false);
+        Time.timeScale = 0f;
     }
 }

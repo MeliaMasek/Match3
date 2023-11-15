@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 7569564772900002980}
   - component: {fileID: 1272875472564702906}
   m_Layer: 0
-  m_Name: Mushroom 1
-  m_TagString: Mushroom
+  m_Name: Tongue
+  m_TagString: Tongue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
