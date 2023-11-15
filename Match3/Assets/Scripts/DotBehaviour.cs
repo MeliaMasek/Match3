@@ -31,6 +31,7 @@ public class DotBehaviour : MonoBehaviour
     public bool isMatched = false;
 
     private MatchingBehaviour findMatches;
+    
     private void Start()
     {
         cam = Camera.main;

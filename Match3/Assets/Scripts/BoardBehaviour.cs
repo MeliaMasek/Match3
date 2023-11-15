@@ -26,8 +26,11 @@ public class BoardBehaviour : MonoBehaviour
     public GamesState currentState = GamesState.move;
     
     private MatchingBehaviour findMatches;
+
+    private SoundManager soundManager;
     private void Start()
     {
+        soundManager = FindObjectOfType<SoundManager>();
         findMatches = FindObjectOfType<MatchingBehaviour>();
         allTiles = new BackgroundTile[width, height];
         allDots = new GameObject[width, height];
@@ -98,7 +101,6 @@ public class BoardBehaviour : MonoBehaviour
                 }
             }
         }
-
         return false;
     }
 
@@ -115,7 +117,7 @@ public class BoardBehaviour : MonoBehaviour
     public void DestroyMatches()
     {
         int scoreToAdd = 5;
-        
+
         bool scoreAdded = false;
         
         for (int i = 0; i < width; i++)
