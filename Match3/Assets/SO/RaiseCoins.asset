@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e82d515da6960c8448148f8bb6187abb, type: 3}
-  m_Name: Highscore
+  m_Script: {fileID: 11500000, guid: 11ec7068977449d4a9aa1f6c1e55deca, type: 3}
+  m_Name: RaiseCoins
   m_EditorClassIdentifier: 
-  value: 5
