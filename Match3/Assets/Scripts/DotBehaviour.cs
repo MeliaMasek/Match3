@@ -25,11 +25,16 @@ public class DotBehaviour : MonoBehaviour
     public int targetX;
     public int targetY;
     
-    private GameObject comparedDot;
+    public bool isMatched = false;
+    
+    public bool isColumnBomb;
+    public bool isRowBomb;
+    public GameObject rowBomb;
+    public GameObject columnBomb;   
+    
+    public GameObject comparedDot;
     private BoardBehaviour board;
     
-    public bool isMatched = false;
-
     private MatchingBehaviour findMatches;
     
     private SoundManager soundManager;
@@ -37,6 +42,11 @@ public class DotBehaviour : MonoBehaviour
     
     private void Start()
     {
+        //Testing Function
+        isColumnBomb = false;
+        isRowBomb = false;
+        //Testing Function
+        
         cam = Camera.main;
         
         board = FindObjectOfType<BoardBehaviour>();
@@ -49,14 +59,27 @@ public class DotBehaviour : MonoBehaviour
         //previousColumn = column;
     }
 
+    //Testing Function
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            isRowBomb = true;
+            GameObject bomb = Instantiate(rowBomb, transform.position, Quaternion.identity);
+            bomb.transform.parent = this.transform;
+        }
+    }
+    //Testing Function
+    
     private void Update()
     {
-        //CheckMatch();
+        /*
         if (isMatched)
         {
             SpriteRenderer sprite = GetComponent<SpriteRenderer>();
             sprite.color = new Color(0f, 0f, 0f, .2f);
         }
+        */
         
         targetX = column;
         targetY = row;
@@ -109,6 +132,7 @@ public class DotBehaviour : MonoBehaviour
                 row = previousRow;
                 column = previousColumn;
                 yield return new WaitForSeconds(.25f);
+                board.currentDot= null;
                 board.currentState = GamesState.move;
             }
             else
@@ -116,7 +140,7 @@ public class DotBehaviour : MonoBehaviour
                 board.DestroyMatches();
                 board.currentState = GamesState.move;
             }
-            comparedDot = null;
+            //comparedDot = null;
         }
     }
 
@@ -147,8 +171,8 @@ public class DotBehaviour : MonoBehaviour
         {
             swipeAngle = Mathf.Atan2(finalTouchPosition.y - firstTouchPosition.y, finalTouchPosition.x - firstTouchPosition.x) * 180 / Mathf.PI;
             MoveObjects();
-            
             board.currentState = GamesState.wait;
+            board.currentDot = this;
         }
     }
 
@@ -224,6 +248,26 @@ public class DotBehaviour : MonoBehaviour
                     isMatched = true;
                 }
             }
+        }
+    }
+    
+    public void MakeRowBomb()
+    {
+        {
+            isRowBomb = true;
+            GameObject bomb = Instantiate(rowBomb, transform.position, Quaternion.identity);
+            bomb.transform.parent = this.transform;
+            //this.gameObject.tag = "RowBomb";
+        }
+    }
+    
+    public void MakeColumnBomb()
+    {
+        {
+            isColumnBomb = true;
+            GameObject bomb = Instantiate(columnBomb, transform.position, Quaternion.identity);
+            bomb.transform.parent = this.transform;
+            //this.gameObject.tag = "ColumnBomb";
         }
     }
 }

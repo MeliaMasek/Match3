@@ -28,6 +28,8 @@ public class BoardBehaviour : MonoBehaviour
     private MatchingBehaviour findMatches;
 
     private SoundManager soundManager;
+    
+    public DotBehaviour currentDot;
     private void Start()
     {
         soundManager = FindObjectOfType<SoundManager>();
@@ -108,6 +110,11 @@ public class BoardBehaviour : MonoBehaviour
     {
         if (allDots[column, row].GetComponent<DotBehaviour>().isMatched)
         {
+            if (findMatches.currentMatches.Count == 4 || findMatches.currentMatches.Count == 7)
+            {
+                findMatches.CheckBombs();
+            }
+
             findMatches.currentMatches.Remove(allDots[column, row]);
             Destroy(allDots[column, row]);
             allDots[column, row] = null;
@@ -215,6 +222,7 @@ public class BoardBehaviour : MonoBehaviour
             yield return new WaitForSeconds(.5f);
             DestroyMatches();
         }
+        findMatches.currentMatches.Clear();
         yield return new WaitForSeconds(.25f);
         currentState = GamesState.move;
     }

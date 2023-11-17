@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 //Code borrowed and modified from Mister Taft Creates https://www.youtube.com/playlist?list=PL4vbr3u7UKWrxEz75MqmTDd899cYAvQ_B
@@ -38,6 +39,26 @@ public class MatchingBehaviour : MonoBehaviour
                         {
                             if (leftDot.tag == currentDot.tag && rightDot.tag == currentDot.tag)
                             {
+                                if (currentDot.GetComponent<DotBehaviour>().isRowBomb || leftDot.GetComponent<DotBehaviour>().isRowBomb || rightDot.GetComponent<DotBehaviour>().isRowBomb)
+                                {
+                                    currentMatches.Union(GetRowPieces(j));   
+                                }
+
+                                if (currentDot.GetComponent<DotBehaviour>().isColumnBomb)
+                                {
+                                    currentMatches.Union(GetColumnPieces(i));
+                                }
+                                
+                                if (leftDot.GetComponent<DotBehaviour>().isColumnBomb)
+                                {
+                                    currentMatches.Union(GetColumnPieces(i-1));
+                                }
+                                
+                                if (rightDot.GetComponent<DotBehaviour>().isColumnBomb)
+                                {
+                                    currentMatches.Union(GetColumnPieces(i+1));
+                                }
+                                
                                 if (!currentMatches.Contains(leftDot))
                                 {
                                     currentMatches.Add(leftDot);
@@ -67,6 +88,26 @@ public class MatchingBehaviour : MonoBehaviour
                         {
                             if (upDot.tag == currentDot.tag && downDot.tag == currentDot.tag)
                             {
+                                if (currentDot.GetComponent<DotBehaviour>().isColumnBomb || upDot.GetComponent<DotBehaviour>().isColumnBomb || downDot.GetComponent<DotBehaviour>().isColumnBomb)
+                                {
+                                    currentMatches.Union(GetColumnPieces(i));
+                                }
+                                
+                                if (currentDot.GetComponent<DotBehaviour>().isRowBomb)
+                                {
+                                    currentMatches.Union(GetRowPieces(j));
+                                }
+                                
+                                if (upDot.GetComponent<DotBehaviour>().isRowBomb)
+                                {
+                                    currentMatches.Union(GetRowPieces(j+1));
+                                }
+                                
+                                if (downDot.GetComponent<DotBehaviour>().isRowBomb)
+                                {
+                                    currentMatches.Union(GetRowPieces(j-1));
+                                }
+                                
                                 if (!currentMatches.Contains(upDot))
                                 {
                                     currentMatches.Add(upDot);
@@ -88,6 +129,74 @@ public class MatchingBehaviour : MonoBehaviour
                         }
                     }
                 }
+            }
+        }
+    }
+    
+    List<GameObject> GetColumnPieces(int column)
+    {
+        List<GameObject> dots = new List<GameObject>();
+        for (int i = 0; i < board.height; i++)
+        {
+            if (board.allDots[column, i] != null)
+            {
+                dots.Add(board.allDots[column, i]);
+                board.allDots[column, i].GetComponent<DotBehaviour>().isMatched = true;
+            }
+        }
+        return dots;
+    }
+    
+    List<GameObject> GetRowPieces(int row)
+    {
+        List<GameObject> dots = new List<GameObject>();
+        for (int i = 0; i < board.width; i++)
+        {
+            if (board.allDots[i, row] != null)
+            {
+                dots.Add(board.allDots[i, row]);
+                board.allDots[i, row].GetComponent<DotBehaviour>().isMatched = true;
+            }
+        }
+        return dots;
+    }
+
+    public void CheckBombs()
+    {
+        if (board.currentDot != null)
+        {
+            if (board.currentDot.isMatched)
+            {
+                board.currentDot.isMatched = false;
+                int typeOfBomb = Random.Range(0, 100);
+                if (typeOfBomb < 50)
+                {
+                    board.currentDot.MakeRowBomb();
+                }
+                else if (typeOfBomb >= 50)
+                {
+                    board.currentDot.MakeColumnBomb();
+                }
+            }
+            else if (board.currentDot.comparedDot != null)
+            {
+                DotBehaviour otherDot = board.currentDot.comparedDot.GetComponent<DotBehaviour>();
+                if (otherDot.isMatched)
+                {
+                    otherDot.isMatched = false;
+                    int typeOfBomb = Random.Range(0, 100);
+                    if (typeOfBomb < 50)
+                    {
+                        otherDot.MakeRowBomb();
+                    }
+                    else if (typeOfBomb >= 50)
+                    {
+                        otherDot.MakeColumnBomb();
+                    }
+                }
+            }
+            {
+                
             }
         }
     }
