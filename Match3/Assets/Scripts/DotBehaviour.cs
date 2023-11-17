@@ -29,14 +29,15 @@ public class DotBehaviour : MonoBehaviour
     
     public bool isColumnBomb;
     public bool isRowBomb;
+    public bool isColorBomb;
+
     public GameObject rowBomb;
     public GameObject columnBomb;   
-    
+    public GameObject colorBomb;
     public GameObject comparedDot;
+    
     private BoardBehaviour board;
-    
     private MatchingBehaviour findMatches;
-    
     private SoundManager soundManager;
 
     
@@ -64,9 +65,9 @@ public class DotBehaviour : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            isRowBomb = true;
-            GameObject bomb = Instantiate(rowBomb, transform.position, Quaternion.identity);
-            bomb.transform.parent = this.transform;
+            isColorBomb = true;
+            GameObject color = Instantiate(colorBomb, transform.position, Quaternion.identity);
+            color.transform.parent = this.transform;
         }
     }
     //Testing Function
@@ -80,7 +81,6 @@ public class DotBehaviour : MonoBehaviour
             sprite.color = new Color(0f, 0f, 0f, .2f);
         }
         */
-        
         targetX = column;
         targetY = row;
         if (Mathf.Abs(targetX - transform.position.x) > .1)
@@ -122,6 +122,17 @@ public class DotBehaviour : MonoBehaviour
 
     public IEnumerator CheckMove()
     {
+        if (isColorBomb)
+        {
+            findMatches.MatchColorPieces(comparedDot.tag);
+            isMatched = true;
+        }
+        else if (comparedDot.GetComponent<DotBehaviour>().isColumnBomb)
+        {
+            findMatches.MatchColorPieces(this.gameObject.tag);
+            comparedDot.GetComponent<DotBehaviour>().isMatched = true;
+        }
+
         yield return new WaitForSeconds(.3f);
         if (comparedDot != null)
         {

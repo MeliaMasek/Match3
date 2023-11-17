@@ -223,6 +223,7 @@ public class BoardBehaviour : MonoBehaviour
             DestroyMatches();
         }
         findMatches.currentMatches.Clear();
+        currentDot = null;
         yield return new WaitForSeconds(.25f);
         currentState = GamesState.move;
     }

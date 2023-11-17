@@ -113,10 +113,13 @@ MonoBehaviour:
   targetX: 0
   targetY: 0
   isMatched: 0
-  isColoumnBomb: 0
+  isColumnBomb: 0
   isRowBomb: 0
+  isColorBomb: 0
   rowBomb: {fileID: 8868914403287080309, guid: 679c9f4504fee224ea2e13c8e0ea58a8, type: 3}
   columnBomb: {fileID: 3314164046115786134, guid: 9e0bd60c9a6b71e4eadd0e0a82393994, type: 3}
+  colorBomb: {fileID: 5087139833607111989, guid: aacb848f1ae88d447ab6b6265130444e, type: 3}
+  comparedDot: {fileID: 0}
 --- !u!114 &1272875472564702906
 MonoBehaviour:
   m_ObjectHideFlags: 0
