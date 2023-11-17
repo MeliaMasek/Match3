@@ -21408,10 +21408,10 @@ MonoBehaviour:
   scoreData: {fileID: 11400000, guid: 7bfe10bdeda75004e8ac7693b2516b70, type: 2}
   tilePrefab: {fileID: 2771758973826584141, guid: 36ef5062509ba75489070078eaccc2de, type: 3}
   dots:
-  - {fileID: 8391520616207244532, guid: 9f5f8217ab2a6ff439ad69bd3dab5479, type: 3}
+  - {fileID: 8391520616207244532, guid: f88baa7d88162ae459f5429a69a58f5f, type: 3}
   - {fileID: 8391520616207244532, guid: e8f04e6ec9e694e45838db5c99ebe7ee, type: 3}
   - {fileID: 8391520616207244532, guid: 3b635da7231079242b74fe8d7198f49e, type: 3}
-  - {fileID: 8391520616207244532, guid: f88baa7d88162ae459f5429a69a58f5f, type: 3}
+  - {fileID: 8391520616207244532, guid: 9f5f8217ab2a6ff439ad69bd3dab5479, type: 3}
   - {fileID: 8391520616207244532, guid: 1e9cfbc9ba3773c41b8ffcf4f676e4ea, type: 3}
   - {fileID: 8391520616207244532, guid: b36ab6b34deb41e458e08fb59306002c, type: 3}
   currentState: 1
@@ -64576,7 +64576,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1680229741}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6662757417933842452, guid: f88baa7d88162ae459f5429a69a58f5f, type: 3}
+        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+        m_MethodName: set_sprite
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 21300000, guid: afa05ead704cf9c43aba27cf9d77d673, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1680229741
 MonoBehaviour:
   m_ObjectHideFlags: 0

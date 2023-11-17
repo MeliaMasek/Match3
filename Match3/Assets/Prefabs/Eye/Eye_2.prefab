@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7569564772900002980}
   - component: {fileID: 1272875472564702906}
   m_Layer: 0
-  m_Name: Eye
+  m_Name: Eye_2
   m_TagString: Eye
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 657aec46d8cd0a84aa042e6fe01115ec, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bcacc72e79b57384f9781d59585d419c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

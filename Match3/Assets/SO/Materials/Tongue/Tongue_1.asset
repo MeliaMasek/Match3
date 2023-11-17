@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8796a76590a0a54e898567c44e4d0a8, type: 3}
-  m_Name: Bone
+  m_Name: Tongue_1
   m_EditorClassIdentifier: 
-  value: {fileID: 2100000, guid: 6587427d732560e499b9296187f55eee, type: 2}
+  value: {fileID: 2100000, guid: 441d76f624dd5ad438469d96b286655a, type: 2}
