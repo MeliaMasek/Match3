@@ -7,4 +7,5 @@ public class StoreItem : ScriptableObject
     public string description;
     public int price;
     public Sprite icon;
+    public SpriteData SpriteData;
 }

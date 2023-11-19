@@ -16,3 +16,10 @@ MonoBehaviour:
   description: 
   price: 50
   icon: {fileID: 21300000, guid: d44b937b09241a94e98ae95737af3cc0, type: 3}
+  prefabs:
+  - {fileID: 8391520616207244532, guid: f88baa7d88162ae459f5429a69a58f5f, type: 3}
+  - {fileID: 8391520616207244532, guid: e8f04e6ec9e694e45838db5c99ebe7ee, type: 3}
+  - {fileID: 8391520616207244532, guid: 3b635da7231079242b74fe8d7198f49e, type: 3}
+  - {fileID: 8391520616207244532, guid: 9f5f8217ab2a6ff439ad69bd3dab5479, type: 3}
+  - {fileID: 8391520616207244532, guid: 1e9cfbc9ba3773c41b8ffcf4f676e4ea, type: 3}
+  - {fileID: 8391520616207244532, guid: b36ab6b34deb41e458e08fb59306002c, type: 3}
