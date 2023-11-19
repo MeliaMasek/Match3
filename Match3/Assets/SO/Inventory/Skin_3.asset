@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccd340bdfdc0178429ab19ac74f0e975, type: 3}
-  m_Name: Skin3
+  m_Script: {fileID: 11500000, guid: 2af4a413e2d7a014d87e25cbfe4e0237, type: 3}
+  m_Name: Skin_3
   m_EditorClassIdentifier: 
+  itemName: Sugar Plum
+  description: 
   price: 50
-  purchased: 0
-  previewArt: {fileID: 0}
+  icon: {fileID: 21300000, guid: 1a8d44ad44a686d41b54bc78f51df25f, type: 3}

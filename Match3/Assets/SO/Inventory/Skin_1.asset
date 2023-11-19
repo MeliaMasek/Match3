@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccd340bdfdc0178429ab19ac74f0e975, type: 3}
-  m_Name: Powerup
+  m_Script: {fileID: 11500000, guid: 2af4a413e2d7a014d87e25cbfe4e0237, type: 3}
+  m_Name: Skin_1
   m_EditorClassIdentifier: 
-  price: 15
-  purchased: 0
-  previewArt: {fileID: 0}
+  itemName: Classic
+  description: 
+  price: 50
+  icon: {fileID: 21300000, guid: d44b937b09241a94e98ae95737af3cc0, type: 3}
