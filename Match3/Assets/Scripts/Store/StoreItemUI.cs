@@ -18,8 +18,23 @@ public class StoreItemUI : MonoBehaviour
         //iconImage.sprite = storeItem.icon;
     }
 
-    public void OnPurchaseButtonClicked()
+    public void OnPurchaseOne()
     {
-        storeManager.Purchase(storeItem.price);
+        storeManager.PurchaseAndApplySet1(storeItem.price);
+    }
+    
+    public void OnPurchaseTwo()
+    {
+        storeManager.PurchaseAndApplySet2(storeItem.price);
+    }
+    
+    public void OnPurchaseThree()
+    {
+        storeManager.PurchaseAndApplySet3(storeItem.price);
+    }
+    
+    public void OnPurchaseFour()
+    {
+        storeManager.PurchaseAndApplySet4(storeItem.price);
     }
 }

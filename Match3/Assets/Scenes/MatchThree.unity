@@ -949,14 +949,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 139748585}
-        m_TargetAssemblyTypeName: StoreItemUI, Assembly-CSharp
-        m_MethodName: OnPurchaseButtonClicked
-        m_Mode: 1
+      - m_Target: {fileID: 1048544427}
+        m_TargetAssemblyTypeName: StoreManager, Assembly-CSharp
+        m_MethodName: PurchaseAndApplySet2
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 50
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -968,78 +968,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: a79e3dcadf118024484ad26b3982bacd, type: 2}
           m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6662757417933842452, guid: f88baa7d88162ae459f5429a69a58f5f, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-        m_MethodName: set_sprite
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: afa05ead704cf9c43aba27cf9d77d673, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6662757417933842452, guid: e8f04e6ec9e694e45838db5c99ebe7ee, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-        m_MethodName: set_sprite
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 5a10c32c5e9699a4aa8bdaef08027efa, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6662757417933842452, guid: 3b635da7231079242b74fe8d7198f49e, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-        m_MethodName: set_sprite
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: bcacc72e79b57384f9781d59585d419c, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6662757417933842452, guid: 9f5f8217ab2a6ff439ad69bd3dab5479, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-        m_MethodName: set_sprite
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: f944fb1802b039842994b185231450ab, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6662757417933842452, guid: 1e9cfbc9ba3773c41b8ffcf4f676e4ea, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-        m_MethodName: set_sprite
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 315af1991bf26394a9876bc8714dfc3f, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6662757417933842452, guid: b36ab6b34deb41e458e08fb59306002c, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-        m_MethodName: set_sprite
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 5d675132b95e78248b7cee9d80007686, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -52672,7 +52600,62 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCoins: {fileID: 11400000, guid: a79e3dcadf118024484ad26b3982bacd, type: 2}
-  prefab: {fileID: 0}
+  prefabSet1:
+  - {fileID: 8391520616207244532, guid: f88baa7d88162ae459f5429a69a58f5f, type: 3}
+  - {fileID: 8391520616207244532, guid: e8f04e6ec9e694e45838db5c99ebe7ee, type: 3}
+  - {fileID: 8391520616207244532, guid: 3b635da7231079242b74fe8d7198f49e, type: 3}
+  - {fileID: 8391520616207244532, guid: 9f5f8217ab2a6ff439ad69bd3dab5479, type: 3}
+  - {fileID: 8391520616207244532, guid: 1e9cfbc9ba3773c41b8ffcf4f676e4ea, type: 3}
+  - {fileID: 8391520616207244532, guid: b36ab6b34deb41e458e08fb59306002c, type: 3}
+  spriteSet1:
+  - {fileID: 21300000, guid: cad907e596e1bdb4c8726c219d203e53, type: 3}
+  - {fileID: 21300000, guid: 4f2538054a15dc04cb5011307a8db6ae, type: 3}
+  - {fileID: 21300000, guid: 657aec46d8cd0a84aa042e6fe01115ec, type: 3}
+  - {fileID: 21300000, guid: 3c9234d8512cdb14e962015b67f9f33c, type: 3}
+  - {fileID: 21300000, guid: 062c097c6d5d5bd4c82f077c3abd43e5, type: 3}
+  - {fileID: 21300000, guid: 3730361046386ba419004596ae5dd64f, type: 3}
+  prefabSet2:
+  - {fileID: 8391520616207244532, guid: f88baa7d88162ae459f5429a69a58f5f, type: 3}
+  - {fileID: 8391520616207244532, guid: e8f04e6ec9e694e45838db5c99ebe7ee, type: 3}
+  - {fileID: 8391520616207244532, guid: 3b635da7231079242b74fe8d7198f49e, type: 3}
+  - {fileID: 8391520616207244532, guid: 9f5f8217ab2a6ff439ad69bd3dab5479, type: 3}
+  - {fileID: 8391520616207244532, guid: 1e9cfbc9ba3773c41b8ffcf4f676e4ea, type: 3}
+  - {fileID: 8391520616207244532, guid: b36ab6b34deb41e458e08fb59306002c, type: 3}
+  spriteSet2:
+  - {fileID: 21300000, guid: afa05ead704cf9c43aba27cf9d77d673, type: 3}
+  - {fileID: 21300000, guid: 5a10c32c5e9699a4aa8bdaef08027efa, type: 3}
+  - {fileID: 21300000, guid: bcacc72e79b57384f9781d59585d419c, type: 3}
+  - {fileID: 21300000, guid: f944fb1802b039842994b185231450ab, type: 3}
+  - {fileID: 21300000, guid: 315af1991bf26394a9876bc8714dfc3f, type: 3}
+  - {fileID: 21300000, guid: 5d675132b95e78248b7cee9d80007686, type: 3}
+  prefabSet3:
+  - {fileID: 8391520616207244532, guid: f88baa7d88162ae459f5429a69a58f5f, type: 3}
+  - {fileID: 8391520616207244532, guid: e8f04e6ec9e694e45838db5c99ebe7ee, type: 3}
+  - {fileID: 8391520616207244532, guid: 3b635da7231079242b74fe8d7198f49e, type: 3}
+  - {fileID: 8391520616207244532, guid: 9f5f8217ab2a6ff439ad69bd3dab5479, type: 3}
+  - {fileID: 8391520616207244532, guid: 1e9cfbc9ba3773c41b8ffcf4f676e4ea, type: 3}
+  - {fileID: 8391520616207244532, guid: b36ab6b34deb41e458e08fb59306002c, type: 3}
+  spriteSet3:
+  - {fileID: 21300000, guid: aaba3aefe3b98c749b73517ca8c802d4, type: 3}
+  - {fileID: 21300000, guid: 9e7e13816aead9e4f9126f08e2fabaa1, type: 3}
+  - {fileID: 21300000, guid: 5b785cd0d929bbe4093b5b5549e89aa4, type: 3}
+  - {fileID: 21300000, guid: 9b44f526adb40de43bd884fa8a47bf7f, type: 3}
+  - {fileID: 21300000, guid: f40701dbe8da6974787a74d70537f486, type: 3}
+  - {fileID: 21300000, guid: 688ff16d349d23048b6970fd26fa0f2e, type: 3}
+  prefabSet4:
+  - {fileID: 8391520616207244532, guid: f88baa7d88162ae459f5429a69a58f5f, type: 3}
+  - {fileID: 8391520616207244532, guid: e8f04e6ec9e694e45838db5c99ebe7ee, type: 3}
+  - {fileID: 8391520616207244532, guid: 3b635da7231079242b74fe8d7198f49e, type: 3}
+  - {fileID: 8391520616207244532, guid: 9f5f8217ab2a6ff439ad69bd3dab5479, type: 3}
+  - {fileID: 8391520616207244532, guid: 1e9cfbc9ba3773c41b8ffcf4f676e4ea, type: 3}
+  - {fileID: 8391520616207244532, guid: b36ab6b34deb41e458e08fb59306002c, type: 3}
+  spriteSet4:
+  - {fileID: 21300000, guid: e5eedf256f1bbdc48a7a75cc95a722e2, type: 3}
+  - {fileID: 21300000, guid: 845e03ea5f1f7c544952b0e1fec9ee99, type: 3}
+  - {fileID: 21300000, guid: f2ba620329e0c784a896c9ee70fbed0f, type: 3}
+  - {fileID: 21300000, guid: e0204b6d22e8cb94e98a046cb1965692, type: 3}
+  - {fileID: 21300000, guid: 8f115ea91843606458bf7a6ca39b8b91, type: 3}
+  - {fileID: 21300000, guid: bc11ab43aba2b9f48b59dfefd16674c3, type: 3}
 --- !u!4 &1048544428
 Transform:
   m_ObjectHideFlags: 0
@@ -55096,7 +55079,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1467749669}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1048544427}
+        m_TargetAssemblyTypeName: StoreManager, Assembly-CSharp
+        m_MethodName: PurchaseAndApplySet3
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 50
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2102620710}
+        m_TargetAssemblyTypeName: TextLabelBehavior, Assembly-CSharp
+        m_MethodName: UpdateLabel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: a79e3dcadf118024484ad26b3982bacd, type: 2}
+          m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1467749669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64617,14 +64624,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1680229743}
-        m_TargetAssemblyTypeName: StoreItemUI, Assembly-CSharp
-        m_MethodName: OnPurchaseButtonClicked
-        m_Mode: 1
+      - m_Target: {fileID: 1048544427}
+        m_TargetAssemblyTypeName: StoreManager, Assembly-CSharp
+        m_MethodName: PurchaseAndApplySet1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 50
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -64636,78 +64643,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: a79e3dcadf118024484ad26b3982bacd, type: 2}
           m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6662757417933842452, guid: f88baa7d88162ae459f5429a69a58f5f, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-        m_MethodName: set_sprite
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: cad907e596e1bdb4c8726c219d203e53, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6662757417933842452, guid: e8f04e6ec9e694e45838db5c99ebe7ee, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-        m_MethodName: set_sprite
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 4f2538054a15dc04cb5011307a8db6ae, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6662757417933842452, guid: 3b635da7231079242b74fe8d7198f49e, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-        m_MethodName: set_sprite
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 657aec46d8cd0a84aa042e6fe01115ec, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6662757417933842452, guid: 9f5f8217ab2a6ff439ad69bd3dab5479, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-        m_MethodName: set_sprite
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 3c9234d8512cdb14e962015b67f9f33c, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6662757417933842452, guid: 1e9cfbc9ba3773c41b8ffcf4f676e4ea, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-        m_MethodName: set_sprite
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 062c097c6d5d5bd4c82f077c3abd43e5, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6662757417933842452, guid: b36ab6b34deb41e458e08fb59306002c, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-        m_MethodName: set_sprite
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 3730361046386ba419004596ae5dd64f, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -66174,7 +66109,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1843133828}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1048544427}
+        m_TargetAssemblyTypeName: StoreManager, Assembly-CSharp
+        m_MethodName: PurchaseAndApplySet4
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 50
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2102620710}
+        m_TargetAssemblyTypeName: TextLabelBehavior, Assembly-CSharp
+        m_MethodName: UpdateLabel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: a79e3dcadf118024484ad26b3982bacd, type: 2}
+          m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1843133828
 MonoBehaviour:
   m_ObjectHideFlags: 0

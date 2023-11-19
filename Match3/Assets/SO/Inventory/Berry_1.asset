@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d039b7966e44c84eb6daa1a63e19ff1, type: 3}
-  m_Name: New Sprite Data
+  m_Name: Berry_1
   m_EditorClassIdentifier: 
-  value: {fileID: 0}
+  value: {fileID: 21300000, guid: cad907e596e1bdb4c8726c219d203e53, type: 3}
