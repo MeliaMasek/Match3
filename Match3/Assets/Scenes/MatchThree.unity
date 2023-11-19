@@ -52656,6 +52656,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e0204b6d22e8cb94e98a046cb1965692, type: 3}
   - {fileID: 21300000, guid: 8f115ea91843606458bf7a6ca39b8b91, type: 3}
   - {fileID: 21300000, guid: bc11ab43aba2b9f48b59dfefd16674c3, type: 3}
+  set1Purchased: 0
+  set2Purchased: 0
+  set3Purchased: 0
+  set4Purchased: 0
 --- !u!4 &1048544428
 Transform:
   m_ObjectHideFlags: 0

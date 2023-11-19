@@ -15,12 +15,27 @@ public class StoreManager : MonoBehaviour
     
     public GameObject[] prefabSet4;
     public Sprite[] spriteSet4;
-    // Method to purchase items and apply the selected prefab set
-    public void PurchaseAndApplySet1(int cost)
+    
+    public bool set1Purchased = false;
+    public bool set2Purchased = false;
+    public bool set3Purchased = false;
+    public bool set4Purchased = false;
+
+    void Start()
     {
-        if (playerCoins.value >= cost)
+        // Check if the sets have been purchased in a previous session and update the flags
+        set1Purchased = PlayerPrefs.GetInt("Set1Purchased", 0) == 1;
+        set2Purchased = PlayerPrefs.GetInt("Set2Purchased", 0) == 1;
+        set3Purchased = PlayerPrefs.GetInt("Set3Purchased", 0) == 1;
+        set4Purchased = PlayerPrefs.GetInt("Set4Purchased", 0) == 1;
+    }
+    
+    public void PurchaseAndApplySet1(int cost)
+    {   
+        if (playerCoins.value >= cost && !set1Purchased)
         {
             playerCoins.value -= cost;
+            set1Purchased = true; // Set the purchased flag for the item
             ApplyColorScheme(prefabSet1, spriteSet1);
             Debug.Log("Item purchased and applied Set 1!");
         }
@@ -32,9 +47,10 @@ public class StoreManager : MonoBehaviour
 
     public void PurchaseAndApplySet2(int cost)
     {
-        if (playerCoins.value >= cost)
+        if (playerCoins.value >= cost && !set2Purchased)
         {
             playerCoins.value -= cost;
+            set2Purchased = true; // Set the purchased flag for the item
             ApplyColorScheme(prefabSet2, spriteSet2);
             Debug.Log("Item purchased and applied Set 2!");
         }
@@ -46,9 +62,10 @@ public class StoreManager : MonoBehaviour
 
     public void PurchaseAndApplySet3(int cost)
     {
-        if (playerCoins.value >= cost)
+        if (playerCoins.value >= cost && !set3Purchased)
         {
             playerCoins.value -= cost;
+            set3Purchased = true; // Set the purchased flag for the item
             ApplyColorScheme(prefabSet3, spriteSet3);
             Debug.Log("Item purchased and applied Set 3!");
         }
@@ -60,9 +77,10 @@ public class StoreManager : MonoBehaviour
     
     public void PurchaseAndApplySet4(int cost)
     {
-        if (playerCoins.value >= cost)
+        if (playerCoins.value >= cost && !set4Purchased)
         {
             playerCoins.value -= cost;
+            set4Purchased = true; // Set the purchased flag for the item
             ApplyColorScheme(prefabSet4, spriteSet4);
             Debug.Log("Item purchased and applied Set 4!");
         }
