@@ -4,17 +4,29 @@ public class StoreManager : MonoBehaviour
 {
     public IntData playerCoins; // Reference to the IntData ScriptableObject
 
-    public GameObject[] prefabSet1; // First set of prefabs
-    public Sprite[] spriteSet1; // Sprites corresponding to the first prefab set
+    //public GameObject[] prefabSet1; // First set of prefabs
+    //public Sprite[] spriteSet1; // Sprites corresponding to the first prefab set
 
-    public GameObject[] prefabSet2; // Second set of prefabs
-    public Sprite[] spriteSet2; // Sprites corresponding to the second prefab set
+    //public GameObject[] prefabSet2; // Second set of prefabs
+    //public Sprite[] spriteSet2; // Sprites corresponding to the second prefab set
 
-    public GameObject[] prefabSet3;
-    public Sprite[] spriteSet3;
+    //public GameObject[] prefabSet3;
+    //public Sprite[] spriteSet3;
     
-    public GameObject[] prefabSet4;
-    public Sprite[] spriteSet4;
+    //public GameObject[] prefabSet4;
+    //public Sprite[] spriteSet4;
+
+    public PrefabData prefabSet1;
+    public SpriteData spriteSet1;
+
+    public PrefabData prefabSet2;
+    public SpriteData spriteSet2;
+    
+    public PrefabData prefabSet3;
+    public SpriteData spriteSet3;
+
+    public PrefabData prefabSet4;
+    public SpriteData spriteSet4;
     
     public bool set1Purchased = false;
     public bool set2Purchased = false;
@@ -36,7 +48,7 @@ public class StoreManager : MonoBehaviour
         {
             playerCoins.value -= cost;
             set1Purchased = true; // Set the purchased flag for the item
-            ApplyColorScheme(prefabSet1, spriteSet1);
+            ApplyColorScheme(prefabSet1.prefabs, spriteSet1.sprites);
             Debug.Log("Item purchased and applied Set 1!");
         }
         else
@@ -51,7 +63,7 @@ public class StoreManager : MonoBehaviour
         {
             playerCoins.value -= cost;
             set2Purchased = true; // Set the purchased flag for the item
-            ApplyColorScheme(prefabSet2, spriteSet2);
+            ApplyColorScheme(prefabSet2.prefabs, spriteSet2.sprites);
             Debug.Log("Item purchased and applied Set 2!");
         }
         else
@@ -66,7 +78,7 @@ public class StoreManager : MonoBehaviour
         {
             playerCoins.value -= cost;
             set3Purchased = true; // Set the purchased flag for the item
-            ApplyColorScheme(prefabSet3, spriteSet3);
+            ApplyColorScheme(prefabSet3.prefabs, spriteSet3.sprites);
             Debug.Log("Item purchased and applied Set 3!");
         }
         else
@@ -81,7 +93,7 @@ public class StoreManager : MonoBehaviour
         {
             playerCoins.value -= cost;
             set4Purchased = true; // Set the purchased flag for the item
-            ApplyColorScheme(prefabSet4, spriteSet4);
+            ApplyColorScheme(prefabSet4.prefabs, spriteSet4.sprites);
             Debug.Log("Item purchased and applied Set 4!");
         }
         else
