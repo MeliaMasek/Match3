@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -9,6 +10,21 @@ public enum GamesState
     wait,
     move
 }
+
+public enum TileKind
+{
+    Breakable,
+    Blank,
+    Normal
+}
+
+[System.Serializable]
+public class TileType
+{
+    public int x;
+    public int y;
+    public TileKind tileKind;
+}
 public class BoardBehaviour : MonoBehaviour
 {
     public int width;
@@ -17,8 +33,8 @@ public class BoardBehaviour : MonoBehaviour
 
     public IntData scoreData;
 
-    private BackgroundTile[,] allTiles;
-
+    private bool[,] blankSpaces;
+    
     public GameObject tilePrefab;
     public GameObject[] dots;
     public GameObject[,] allDots;
@@ -30,43 +46,61 @@ public class BoardBehaviour : MonoBehaviour
     private SoundManager soundManager;
     
     public DotBehaviour currentDot;
+    
+    public TileType[] boardLayout;  
     private void Start()
     {
         soundManager = FindObjectOfType<SoundManager>();
         findMatches = FindObjectOfType<MatchingBehaviour>();
-        allTiles = new BackgroundTile[width, height];
+        blankSpaces = new bool[width, height];
         allDots = new GameObject[width, height];
         SetUp();
     }
 
+    public void GenerateBlankspaces()
+    {
+        for (int i = 0; i < boardLayout.Length; i++)
+        {
+            if (boardLayout[i].tileKind == TileKind.Blank)
+            {
+                blankSpaces[boardLayout[i].x, boardLayout[i].y] = true;
+            }
+        }   
+    }
+    
     private void SetUp()
     {
+        GenerateBlankspaces();
         for (int i = 0; i < width; i++)
         {
             for (int j = 0; j < height; j++)
             {
-                Vector3 tempPosition = new Vector3(i, j + offset, 0);
-                GameObject backgroundTile = Instantiate(tilePrefab, tempPosition, Quaternion.identity) as GameObject;
-                backgroundTile.transform.parent = this.transform;
-                backgroundTile.name = "(" + i + "," + j + ")";
-
-                int usableDots = Random.Range(0, dots.Length);
-                int maxIterations = 0;
-
-                while (MatchesAt(i, j, dots[usableDots]) && maxIterations < 100)
+                if (!blankSpaces[i, j])
                 {
-                    usableDots = Random.Range(0, dots.Length);
-                    maxIterations++;
+                    Vector3 tempPosition = new Vector3(i, j + offset, 0);
+                    GameObject backgroundTile =
+                        Instantiate(tilePrefab, tempPosition, Quaternion.identity) as GameObject;
+                    backgroundTile.transform.parent = this.transform;
+                    backgroundTile.name = "(" + i + "," + j + ")";
+
+                    int usableDots = Random.Range(0, dots.Length);
+                    int maxIterations = 0;
+
+                    while (MatchesAt(i, j, dots[usableDots]) && maxIterations < 100)
+                    {
+                        usableDots = Random.Range(0, dots.Length);
+                        maxIterations++;
+                    }
+
+                    maxIterations = 0;
+
+                    GameObject dot = Instantiate(dots[usableDots], tempPosition, Quaternion.identity);
+                    dot.GetComponent<DotBehaviour>().row = j;
+                    dot.GetComponent<DotBehaviour>().column = i;
+                    dot.transform.parent = this.transform;
+                    dot.name = "(" + i + "," + j + ")";
+                    allDots[i, j] = dot;
                 }
-
-                maxIterations = 0;
-
-                GameObject dot = Instantiate(dots[usableDots], tempPosition, Quaternion.identity);
-                dot.GetComponent<DotBehaviour>().row = j;
-                dot.GetComponent<DotBehaviour>().column = i;
-                dot.transform.parent = this.transform;
-                dot.name = "(" + i + "," + j + ")";
-                allDots[i, j] = dot;
             }
         }
     }
@@ -75,31 +109,43 @@ public class BoardBehaviour : MonoBehaviour
     {
         if (column > 1 && row > 1)
         {
-            if (allDots[column - 1, row].tag == obj.tag && allDots[column - 2, row].tag == obj.tag)
+            if (allDots[column - 1, row] != null && allDots[column - 2, row] != null)
             {
-                return true;
+                if (allDots[column - 1, row].tag == obj.tag && allDots[column - 2, row].tag == obj.tag)
+                {
+                    return true;
+                }
             }
 
-            if (allDots[column, row - 1].tag == obj.tag && allDots[column, row - 2].tag == obj.tag)
-            {
-                return true;
-            }
-        }
-        else if (column <= 1 || row <= 1)
-        {
-            if (row > 1)
+            if (allDots[column, row - 1] != null && allDots[column, row - 2] != null)
             {
                 if (allDots[column, row - 1].tag == obj.tag && allDots[column, row - 2].tag == obj.tag)
                 {
                     return true;
                 }
             }
+        }
+        else if (column <= 1 || row <= 1)
+        {
+            if (row > 1)
+            {
+                if (allDots[column, row - 1] != null && allDots[column, row - 2] != null)
+                {
+                    if (allDots[column, row - 1].tag == obj.tag && allDots[column, row - 2].tag == obj.tag)
+                    {
+                        return true;
+                    }
+                }
+            }
 
             if (column > 1)
             {
-                if (allDots[column - 1, row].tag == obj.tag && allDots[column - 2, row].tag == obj.tag)
+                if (allDots[column - 1, row] != null && allDots[column - 2, row] != null)
                 {
-                    return true;
+                    if (allDots[column - 1, row].tag == obj.tag && allDots[column - 2, row].tag == obj.tag)
+                    {
+                        return true;
+                    }
                 }
             }
         }
@@ -227,6 +273,7 @@ public class BoardBehaviour : MonoBehaviour
 
         if (IsDeadlocked())
         {
+            Shuffle();
             Debug.Log("Deadlocked");
         }
         
@@ -318,5 +365,51 @@ public class BoardBehaviour : MonoBehaviour
             }
         }
         return true;
+    }
+
+    public void Shuffle()
+    {
+        List<GameObject> newBoard = new List<GameObject>();
+        for (int i = 0; i < width; i++)
+        {
+            for (int j = 0; j < height; j++)
+            {
+                if (allDots[i, j] != null)
+                {
+                    newBoard.Add(allDots[i, j]);
+                }
+            }
+        }
+        
+        for (int i = 0; i < width; i++)
+        {
+            for (int j = 0; j < height; j++)
+            {
+                if (blankSpaces[i,j])
+                {
+                    int pieceToUse = Random.Range(0, newBoard.Count);
+                    int maxIterations = 0;
+
+                    while (MatchesAt(i, j, newBoard[pieceToUse]) && maxIterations < 100)
+                    {
+                        pieceToUse = Random.Range(0, newBoard.Count);
+                        maxIterations++;
+                        Debug.Log(maxIterations);
+                    }
+                   
+                    DotBehaviour piece = newBoard[pieceToUse].GetComponent<DotBehaviour>();
+                    maxIterations = 0;
+                    piece.column = i;
+                    piece.row = j;
+                    allDots[i,j] = newBoard[pieceToUse];
+                    newBoard.Remove(newBoard[pieceToUse]);
+                }
+            }
+        }
+
+        if (IsDeadlocked())
+        {
+            Shuffle();
+        }
     }
 }

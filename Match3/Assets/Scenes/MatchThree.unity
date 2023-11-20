@@ -21246,8 +21246,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b52aa1f46ada87247a525d51931f1568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 4
-  height: 4
+  width: 6
+  height: 5
   offset: 3
   scoreData: {fileID: 11400000, guid: 7bfe10bdeda75004e8ac7693b2516b70, type: 2}
   tilePrefab: {fileID: 2771758973826584141, guid: 36ef5062509ba75489070078eaccc2de, type: 3}
