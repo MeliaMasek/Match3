@@ -27,6 +27,7 @@ public class DotBehaviour : MonoBehaviour
     
     public bool isMatched = false;
     
+    public bool isAdjacentBomb;
     public bool isColumnBomb;
     public bool isRowBomb;
     public bool isColorBomb;
@@ -35,6 +36,7 @@ public class DotBehaviour : MonoBehaviour
     public GameObject columnBomb;   
     public GameObject colorBomb;
     public GameObject comparedDot;
+    public GameObject adjacentBomb;
     
     private BoardBehaviour board;
     private MatchingBehaviour findMatches;
@@ -46,6 +48,8 @@ public class DotBehaviour : MonoBehaviour
         //Testing Function
         isColumnBomb = false;
         isRowBomb = false;
+        isAdjacentBomb = false;
+        isColorBomb = false;
         //Testing Function
         
         cam = Camera.main;
@@ -65,9 +69,9 @@ public class DotBehaviour : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            isColorBomb = true;
-            GameObject color = Instantiate(colorBomb, transform.position, Quaternion.identity);
-            color.transform.parent = this.transform;
+            isAdjacentBomb = true;
+            GameObject marker = Instantiate(adjacentBomb, transform.position, Quaternion.identity);
+            marker.transform.parent = this.transform;
         }
     }
     //Testing Function

@@ -21,6 +21,27 @@ public class MatchingBehaviour : MonoBehaviour
         StartCoroutine(FindAllMatchesCo());
     }
 
+    private List<GameObject> isAdjacentBomb(DotBehaviour dot1, DotBehaviour dot2, DotBehaviour dot3)
+    {
+        List<GameObject> currentDots = new List<GameObject>();
+        if (dot1.isAdjacentBomb)
+        {
+            currentMatches.Union(GetAdjacentPieces(dot1.column, dot1.row));
+        }
+
+        if (dot2.isAdjacentBomb)
+        {
+            currentMatches.Union(GetAdjacentPieces(dot2.column, dot2.row));
+        }
+
+        if (dot3.isAdjacentBomb)
+        {
+            currentMatches.Union(GetAdjacentPieces(dot3.column, dot3.row));
+        }
+
+        return currentDots;
+    }
+
     private List<GameObject> isRowbomb(DotBehaviour dot1, DotBehaviour dot2, DotBehaviour dot3)
     {
         List<GameObject> currentDots = new List<GameObject>();
@@ -104,6 +125,7 @@ public class MatchingBehaviour : MonoBehaviour
                                 {
                                     currentMatches.Union(isRowbomb(leftDotDot, currentDotDot, rightDotDot));
                                     currentMatches.Union(isColumnbomb(leftDotDot, currentDotDot, rightDotDot));
+                                    currentMatches.Union(isAdjacentBomb(leftDotDot, currentDotDot, rightDotDot));
 
                                     GetNearbyPieces(leftDot, currentDot, rightDot);
                                 }
@@ -127,7 +149,8 @@ public class MatchingBehaviour : MonoBehaviour
                                 {
                                     currentMatches.Union(isColumnbomb(UpDotDot, currentDotDot, DownDotDot));
                                     currentMatches.Union(isRowbomb(UpDotDot, currentDotDot, DownDotDot));
-
+                                    currentMatches.Union(isAdjacentBomb(UpDotDot, currentDotDot, DownDotDot));
+                                    
                                     GetNearbyPieces(upDot, currentDot, downDot);
                                 }
                             }
@@ -218,5 +241,25 @@ public class MatchingBehaviour : MonoBehaviour
                 }
             }
         }
+    }
+
+    List<GameObject> GetAdjacentPieces(int col, int row)
+    {
+        List<GameObject> dots = new List<GameObject>();
+        for (int i = col -1; i <= col + 1; i++)
+        {
+            for(int j = row -1; j <= row + 1; j++)
+            {
+                if (i >= 0 && i < board.width && j >= 0 && j < board.height)
+                {
+                    if (board.allDots[i, j] != null)
+                    {
+                        dots.Add(board.allDots[i, j]);
+                        board.allDots[i, j].GetComponent<DotBehaviour>().isMatched = true;
+                    }
+                }
+            }
+        }
+        return dots;
     }
 }
