@@ -7,7 +7,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject shopMenu;
-
+    [SerializeField] private GameObject shuffleMenu;
 
     private int sceneToContinue;
     private int currentSceneIndex;
@@ -45,5 +45,11 @@ public class PauseMenu : MonoBehaviour
     {
         shopMenu.SetActive(false);
         Time.timeScale = 0f;
+    }
+    
+    public void Shuffle()
+    {
+        shuffleMenu.SetActive(true);
+        Time.timeScale = 1f;
     }
 }

@@ -48,6 +48,8 @@ public class BoardBehaviour : MonoBehaviour
     public DotBehaviour currentDot;
     
     public TileType[] boardLayout;  
+    
+    PauseMenu shuffleMenu;
     private void Start()
     {
         soundManager = FindObjectOfType<SoundManager>();
@@ -273,10 +275,9 @@ public class BoardBehaviour : MonoBehaviour
 
         if (IsDeadlocked())
         {
-            Shuffle();
+            //Shuffle();
             Debug.Log("Deadlocked");
         }
-        
         currentState = GamesState.move;
     }
 
@@ -338,7 +339,7 @@ public class BoardBehaviour : MonoBehaviour
         return false;
     }
     
-    private bool IsDeadlocked()
+    public bool IsDeadlocked()
     {
         for (int i = 0; i < width; i++)
         {
