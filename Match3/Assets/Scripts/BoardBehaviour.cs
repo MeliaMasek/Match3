@@ -409,7 +409,7 @@ public class BoardBehaviour : MonoBehaviour
 
         if (IsDeadlocked())
         {
-            Shuffle();
+            //Shuffle();
         }
     }
 }
