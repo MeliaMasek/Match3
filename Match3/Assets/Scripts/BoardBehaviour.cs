@@ -70,7 +70,7 @@ public class BoardBehaviour : MonoBehaviour
         }   
     }
     
-    private void SetUp()
+    public void SetUp()
     {
         GenerateBlankspaces();
         for (int i = 0; i < width; i++)
@@ -102,6 +102,22 @@ public class BoardBehaviour : MonoBehaviour
                     dot.transform.parent = this.transform;
                     dot.name = "(" + i + "," + j + ")";
                     allDots[i, j] = dot;
+                }
+            }
+        }
+    }
+
+    public void ResetBoard()
+    {
+        // Clear all dots on the board
+        for (int i = 0; i < width; i++)
+        {
+            for (int j = 0; j < height; j++)
+            {
+                if (allDots[i, j] != null)
+                {
+                    Destroy(allDots[i, j]);
+                    allDots[i, j] = null;
                 }
             }
         }
@@ -408,9 +424,9 @@ public class BoardBehaviour : MonoBehaviour
             }
         }
 
-        if (IsDeadlocked())
-        {
+        //if (IsDeadlocked())
+        //{
             //Shuffle();
-        }
+        //}
     }
 }
