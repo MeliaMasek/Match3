@@ -1268,10 +1268,82 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: bba0dc8a200f4944b90ce37e2974c653, type: 2}
+        m_TargetAssemblyTypeName: IntData, Assembly-CSharp
+        m_MethodName: CompareValue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 7bfe10bdeda75004e8ac7693b2516b70, type: 2}
+          m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2113158379}
+        m_TargetAssemblyTypeName: TextLabelBehaviorNew, Assembly-CSharp
+        m_MethodName: UpdateLabel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 7bfe10bdeda75004e8ac7693b2516b70, type: 2}
+          m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2113158379}
+        m_TargetAssemblyTypeName: TextLabelBehaviorNew, Assembly-CSharp
+        m_MethodName: UpdateLabel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: bba0dc8a200f4944b90ce37e2974c653, type: 2}
+          m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 7bfe10bdeda75004e8ac7693b2516b70, type: 2}
         m_TargetAssemblyTypeName: IntData, Assembly-CSharp
         m_MethodName: SetValue
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1807441930}
+        m_TargetAssemblyTypeName: TextLabelBehaviorNew, Assembly-CSharp
+        m_MethodName: UpdateLabel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 7bfe10bdeda75004e8ac7693b2516b70, type: 2}
+          m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 625287013}
+        m_TargetAssemblyTypeName: BoardBehaviour, Assembly-CSharp
+        m_MethodName: ResetBoard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 625287013}
+        m_TargetAssemblyTypeName: BoardBehaviour, Assembly-CSharp
+        m_MethodName: SetUp
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2834,7 +2906,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &529931767
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21394,6 +21466,7 @@ MonoBehaviour:
   currentState: 1
   currentDot: {fileID: 0}
   boardLayout: []
+  shuffleMenu: {fileID: 1495637998}
 --- !u!4 &625287014
 Transform:
   m_ObjectHideFlags: 0
@@ -23172,8 +23245,20 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 7bfe10bdeda75004e8ac7693b2516b70, type: 2}
         m_TargetAssemblyTypeName: IntData, Assembly-CSharp
-        m_MethodName: SetValue
+        m_MethodName: UpdateValue
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 793516883}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -23182,9 +23267,45 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 793516883}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
+      - m_Target: {fileID: 1495638000}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: ShuffleOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1495638000}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 625287013}
+        m_TargetAssemblyTypeName: BoardBehaviour, Assembly-CSharp
+        m_MethodName: ResetBoard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 625287013}
+        m_TargetAssemblyTypeName: BoardBehaviour, Assembly-CSharp
+        m_MethodName: SetUp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -54246,6 +54367,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 625287013}
         m_TargetAssemblyTypeName: BoardBehaviour, Assembly-CSharp
+        m_MethodName: Shuffle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 625287013}
+        m_TargetAssemblyTypeName: BoardBehaviour, Assembly-CSharp
         m_MethodName: ResetBoard
         m_Mode: 1
         m_Arguments:
@@ -54259,18 +54392,6 @@ MonoBehaviour:
       - m_Target: {fileID: 625287013}
         m_TargetAssemblyTypeName: BoardBehaviour, Assembly-CSharp
         m_MethodName: SetUp
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 625287013}
-        m_TargetAssemblyTypeName: BoardBehaviour, Assembly-CSharp
-        m_MethodName: Shuffle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -54837,6 +54958,66 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: bba0dc8a200f4944b90ce37e2974c653, type: 2}
+        m_TargetAssemblyTypeName: IntData, Assembly-CSharp
+        m_MethodName: CompareValue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 7bfe10bdeda75004e8ac7693b2516b70, type: 2}
+          m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2113158379}
+        m_TargetAssemblyTypeName: TextLabelBehaviorNew, Assembly-CSharp
+        m_MethodName: UpdateLabel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 7bfe10bdeda75004e8ac7693b2516b70, type: 2}
+          m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2113158379}
+        m_TargetAssemblyTypeName: TextLabelBehaviorNew, Assembly-CSharp
+        m_MethodName: UpdateLabel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: bba0dc8a200f4944b90ce37e2974c653, type: 2}
+          m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1807441930}
+        m_TargetAssemblyTypeName: TextLabelBehaviorNew, Assembly-CSharp
+        m_MethodName: UpdateLabel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 7bfe10bdeda75004e8ac7693b2516b70, type: 2}
+          m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 7bfe10bdeda75004e8ac7693b2516b70, type: 2}
+        m_TargetAssemblyTypeName: IntData, Assembly-CSharp
+        m_MethodName: SetValue
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 625287013}
         m_TargetAssemblyTypeName: BoardBehaviour, Assembly-CSharp
         m_MethodName: ResetBoard
@@ -55063,7 +55244,7 @@ RectTransform:
   m_GameObject: {fileID: 1383194735}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.14266, y: 0.14266, z: 0.14266}
+  m_LocalScale: {x: 0.14435598, y: 0.07672668, z: 0.14435598}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1829535063}
@@ -55071,7 +55252,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.19999981}
+  m_AnchoredPosition: {x: 1.1500015, y: -0.8999996}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1383194737
@@ -55095,9 +55276,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 0aaf120c4895eac469587ab89ca37695, type: 3}
     m_FontSize: 200
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 200
@@ -55984,7 +56165,6 @@ GameObject:
   - component: {fileID: 1495638002}
   - component: {fileID: 1495638001}
   - component: {fileID: 1495638000}
-  - component: {fileID: 1495638003}
   m_Layer: 5
   m_Name: ShuffleMenu
   m_TagString: Untagged
@@ -56044,7 +56224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6132076, g: 0.12958345, b: 0.12958345, a: 1}
+  m_Color: {r: 0, g: 0.94702005, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -56069,26 +56249,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495637998}
   m_CullTransparentMesh: 1
---- !u!95 &1495638003
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1495637998}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 300b148442b406f46b2919ce6b08bd17, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1501255103
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66865,6 +67025,18 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1495638000}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: ShuffleOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1495638000}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
@@ -66875,10 +67047,82 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: bba0dc8a200f4944b90ce37e2974c653, type: 2}
+        m_TargetAssemblyTypeName: IntData, Assembly-CSharp
+        m_MethodName: CompareValue
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 7bfe10bdeda75004e8ac7693b2516b70, type: 2}
+          m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2113158379}
+        m_TargetAssemblyTypeName: TextLabelBehaviorNew, Assembly-CSharp
+        m_MethodName: UpdateLabel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 7bfe10bdeda75004e8ac7693b2516b70, type: 2}
+          m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2113158379}
+        m_TargetAssemblyTypeName: TextLabelBehaviorNew, Assembly-CSharp
+        m_MethodName: UpdateLabel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: bba0dc8a200f4944b90ce37e2974c653, type: 2}
+          m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 7bfe10bdeda75004e8ac7693b2516b70, type: 2}
         m_TargetAssemblyTypeName: IntData, Assembly-CSharp
         m_MethodName: SetValue
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1807441930}
+        m_TargetAssemblyTypeName: TextLabelBehaviorNew, Assembly-CSharp
+        m_MethodName: UpdateLabel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 7bfe10bdeda75004e8ac7693b2516b70, type: 2}
+          m_ObjectArgumentAssemblyTypeName: IntData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 625287013}
+        m_TargetAssemblyTypeName: BoardBehaviour, Assembly-CSharp
+        m_MethodName: ResetBoard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 625287013}
+        m_TargetAssemblyTypeName: BoardBehaviour, Assembly-CSharp
+        m_MethodName: SetUp
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -68164,7 +68408,7 @@ RectTransform:
   m_GameObject: {fileID: 2048319115}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.18808131, y: 0.09996715, z: 0.18808131}
+  m_LocalScale: {x: 0.16148286, y: 0.085829794, z: 0.16148286}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 793516879}
@@ -68172,7 +68416,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.13}
+  m_AnchoredPosition: {x: -0.14199829, y: -0.61667997}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2048319117
@@ -68196,9 +68440,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 0aaf120c4895eac469587ab89ca37695, type: 3}
     m_FontSize: 200
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 200
@@ -69460,7 +69704,7 @@ RectTransform:
   m_GameObject: {fileID: 2138014146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.34596, y: 1.624213, z: 0.34596}
+  m_LocalScale: {x: 0.53246707, y: 2.4998262, z: 0.53246707}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1495637999}
@@ -69468,7 +69712,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -290, y: 477}
+  m_AnchoredPosition: {x: -190.2, y: 543}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2138014148
@@ -69492,7 +69736,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: b69c3ec6b8dc2624e819cd53d0114361, type: 3}
     m_FontSize: 200
     m_FontStyle: 1
     m_BestFit: 0
@@ -69504,7 +69748,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Gameover! Shuffle?
+  m_Text: Gameover!
 --- !u!222 &2138014149
 CanvasRenderer:
   m_ObjectHideFlags: 0

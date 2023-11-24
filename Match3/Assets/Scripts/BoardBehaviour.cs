@@ -49,7 +49,7 @@ public class BoardBehaviour : MonoBehaviour
     
     public TileType[] boardLayout;  
     
-    PauseMenu shuffleMenu;
+    public GameObject shuffleMenu;
     private void Start()
     {
         soundManager = FindObjectOfType<SoundManager>();
@@ -187,7 +187,7 @@ public class BoardBehaviour : MonoBehaviour
 
     public void DestroyMatches()
     {
-        int scoreToAdd = 5;
+        int scoreToAdd = 1;
 
         bool scoreAdded = false;
         
@@ -292,6 +292,7 @@ public class BoardBehaviour : MonoBehaviour
         if (IsDeadlocked())
         {
             //Shuffle();
+            shuffleMenu.SetActive(true);
             Debug.Log("Deadlocked");
         }
         currentState = GamesState.move;
