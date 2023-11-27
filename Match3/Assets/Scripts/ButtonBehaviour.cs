@@ -18,7 +18,7 @@ public class ButtonBehaviour : MonoBehaviour
     public void OnButton()
     {
         // Check if the IntData value is zero and toggle the button state accordingly
-        if (value.value <= 1)
+        if (value.value >= 1)
         {
             shuffleButton.gameObject.SetActive(true); // Turn off the button
         }
